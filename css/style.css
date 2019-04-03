@@ -11,6 +11,9 @@ body::-webkit-scrollbar {
   width: 10px;
   /* Tamaño del scroll en vertical */ }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif; }
+
 /* Ponemos un color de fondo y redondeamos las esquinas del thumb */
 ::-webkit-scrollbar-thumb {
   background: #0c214a;
@@ -77,7 +80,8 @@ ul, ol {
   background: -webkit-gradient(linear, left top, right top, from(#0B7D9A), to(#2051AD));
   background: -webkit-linear-gradient(left, #0B7D9A, #2051AD);
   background: -o-linear-gradient(left, #0B7D9A, #2051AD);
-  background: linear-gradient(to right, #0B7D9A, #2051AD); }
+  background: linear-gradient(to right, #0B7D9A, #2051AD);
+  overflow: hidden; }
   .aquizHeroWrapper {
     display: -ms-grid;
     display: grid;
@@ -366,7 +370,8 @@ ul, ol {
     line-height: 2.5;
     font-size: 40px;
     font-family: 'Lato', sans-serif;
-    padding-left: 10px; }
+    padding-left: 10px;
+    text-transform: uppercase; }
 
 .aquizAbout {
   padding-top: 12em; }
@@ -521,6 +526,158 @@ ul, ol {
     height: 100%;
     position: absolute; }
 
+.aquizCourseExtra {
+  background: #00255B;
+  color: #fff;
+  padding: 4em 0; }
+  .aquizCourseExtraWrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 50px; }
+  .aquizCourseExtra .aquizCourseComments__write {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr auto;
+    grid-template-columns: 1fr auto;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    grid-gap: 15px; }
+  .aquizCourseExtra .aquizCourseComments h2, .aquizCourseExtra .aquizCourseMaterialPlus h2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-style: italic; }
+  .aquizCourseExtra .aquizCourseMaterialPlus span {
+    color: #ED9811;
+    font-size: 40px; }
+  .aquizCourseExtra .aquizCourseComments textarea {
+    padding-left: 10px;
+    border-radius: 6px;
+    outline: 0;
+    resize: none; }
+  .aquizCourseExtra .aquizCourseComments button {
+    background: #DC2C62;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: 0;
+    border: 0; }
+  .aquizCourseExtra .aquizCourseComments__messages {
+    padding-top: 1.5em; }
+    .aquizCourseExtra .aquizCourseComments__messages .commentMessage h3 {
+      color: #F29100;
+      font-size: 16px; }
+    .aquizCourseExtra .aquizCourseComments__messages .commentMessage p {
+      font-size: 14px; }
+  .aquizCourseExtra .materialDownload {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr auto;
+    grid-template-columns: 1fr auto;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    grid-column-gap: 20px; }
+    .aquizCourseExtra .materialDownload .materialDownload__description h3 {
+      color: #F29100;
+      font-size: 16px; }
+    .aquizCourseExtra .materialDownload .materialDownload__description p {
+      font-size: 14px; }
+    .aquizCourseExtra .materialDownload .fa-file-pdf {
+      font-size: 24px;
+      cursor: pointer; }
+
+.aquizCourseMedia {
+  padding: 6em 0; }
+  .aquizCourseMediaWrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: .5fr 30px 1fr;
+    grid-template-columns: .5fr 1fr;
+    grid-column-gap: 30px;
+    grid-template-areas: 'listTopic videoTopic'; }
+  .aquizCourseMediaTopic {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: listTopic; }
+  .aquizCourseMediaTopic__title {
+    background: #187C89;
+    color: #fff;
+    padding: 1em;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif; }
+  .aquizCourseMediaTopic__list .bashTopic {
+    position: relative; }
+  .aquizCourseMediaTopic__list .bashTopic::after {
+    content: '';
+    width: 8px;
+    height: 5em;
+    top: -16px;
+    background: #cecece;
+    position: absolute;
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
+    z-index: 2; }
+  .aquizCourseMediaTopic__list .bashTopic img {
+    z-index: 3;
+    position: relative; }
+  .aquizCourseMediaTopic__list .aquizTopic:hover {
+    background: #f2f2f2; }
+  .aquizCourseMediaTopic__list a {
+    padding: 1em;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto 1fr;
+    grid-template-columns: auto 1fr;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-decoration: none; }
+  .aquizCourseMediaTopic__list h2 {
+    display: inline-block;
+    padding-left: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #686868;
+    margin: 0; }
+
+.descriptionWrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+  grid-template-columns: 1fr auto;
+  grid-column-gap: 40px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.aquizCourseWatch {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: videoTopic; }
+  .aquizCourseWatch iframe {
+    width: 100%;
+    height: 500px; }
+  .aquizCourseWatch__description h3 {
+    font-size: 18px;
+    font-family: 'Lato', sans-serif; }
+  .aquizCourseWatch__description p {
+    font-size: 14px;
+    font-weight: lighter; }
+  .aquizCourseWatch span {
+    font-size: 18px;
+    font-weight: bold;
+    justify-self: flex-end; }
+  .aquizCourseWatch span i {
+    color: #D8D8D8; }
+    .aquizCourseWatch span i.star-active {
+      color: #FFD620; }
+
 .aquizContact {
   padding: 6em 0; }
   .aquizContactForm {
@@ -537,6 +694,9 @@ ul, ol {
     line-height: 3;
     outline: 0;
     padding-left: 5px; }
+  .aquizContact textarea {
+    resize: none;
+    outline: 0; }
   .aquizContact button {
     background: #B90449;
     padding: .5em;
@@ -548,6 +708,33 @@ ul, ol {
     border-radius: 4px;
     width: 90px;
     display: inline-block; }
+
+.aquizSocial {
+  background: #00255B;
+  padding: 4em 0; }
+  .aquizSocialWrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-items: center; }
+  .aquizSocial h2 {
+    font-size: 32px;
+    color: #F29100;
+    text-transform: uppercase;
+    text-align: center; }
+  .aquizSocialLinks a {
+    display: block;
+    color: #fff;
+    font-family: 'Lato', sans-serif; }
+    .aquizSocialLinks a .face-icon, .aquizSocialLinks a .youtube-icon {
+      font-size: 18px;
+      margin: 5px 0; }
+  .aquizSocialLinks .face-icon::before, .aquizSocialLinks .youtube-icon::before {
+    padding-right: 10px; }
 
 @media screen and (max-width: 1200px) {
   .aquizHeadSocial__icon {
@@ -668,7 +855,17 @@ ul, ol {
   .hamburger {
     display: inline-block;
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    justify-self: flex-end; }
+  .aquizTitle h2 {
+    font-size: 24px; }
+  .aquizCourseMediaWrapper {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'videoTopic' 'listTopic'; }
+  .aquizCourseExtraWrapper {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr; }
   .aquizHero__img {
     -ms-grid-row: 2;
     -ms-grid-column: 1; }
@@ -684,6 +881,12 @@ ul, ol {
     -ms-grid-column: 1; }
   .aquizSuscribe img {
     -ms-grid-row: 3;
+    -ms-grid-column: 1; }
+  .aquizCourseMediaTopic {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1; }
+  .aquizCourseWatch {
+    -ms-grid-row: 1;
     -ms-grid-column: 1; } }
 
 @media screen and (max-width: 576px) {
@@ -720,4 +923,9 @@ ul, ol {
     padding: 3em 0;
     text-align: center; }
   .aquizAboutDescription__txt {
-    width: 100%; } }
+    width: 100%; }
+  .aquizContact {
+    margin: 0 1em; }
+  .aquizContactForm {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr; } }
