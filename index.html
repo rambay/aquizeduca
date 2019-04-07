@@ -26,13 +26,14 @@
     <div class="wrapper aquizHeadWrapper">
       <div class="aquizHeadLogo">
         <a href="./">
-          <img class="aquizHeadLogo__header" src="assets/logoHeader.png" alt="Logo" width="160" />
+          <img class="aquizHeadLogo__header" src="assets/logoHeader.png" alt="Logo" width="140" />
         </a>
       </div>
-      <button class="hamburger hamburger--elastic" type="button" id="menuBurguer">
+      <button class="hamburger hamburger--elastic" type="button" id="menuBurguer" onmouseover="toolTipActive()" onmouseout="toolTipFalse()">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
+        <span id="tooltip" class="tooltip">Menu</span>
       </button>
       <nav class="aquizHeadNav" id="menuNav">
         <ul>
@@ -41,11 +42,11 @@
           <li class="aquizHeadNav__list"><a class="aquizHeadNav__link" href="./cursos.html">Cursos</a></li>
           <li class="aquizHeadNav__list"><a class="aquizHeadNav__link" href="./contacto.html">Contacto</a></li>
         </ul>
+        <div class="aquizHeadSocial">
+          <a class="aquizHeadSocial__link" href="#"><i class="fab fa-facebook aquizHeadSocial__icon"></i></a>
+          <a class="aquizHeadSocial__link" href="#"><i class="fab fa-youtube aquizHeadSocial__icon"></i></a>
+        </div>
       </nav>
-      <div class="aquizHeadSocial">
-        <a class="aquizHeadSocial__link" href="#"><i class="fab fa-facebook aquizHeadSocial__icon"></i></a>
-        <a class="aquizHeadSocial__link" href="#"><i class="fab fa-youtube aquizHeadSocial__icon"></i></a>
-      </div>
     </div>
   </header>
 
@@ -94,7 +95,7 @@
           ejercicios online que te ofrecemos para
           ayudarte a comprender mas las materias.</p>
         <img class="aquizModulesTags__img" src="assets/lesson02@2x.png" alt="Clases Dinamicas" />
-        <a class="aquizModulesTags__btn" href="#">Jugar</a>
+        <a class="aquizModulesTags__btn" href="quiz.html">Jugar</a>
       </article>
       <article class="aquizModulesTags wow bounceInUp">
         <h3 class="aquizModulesTags__title">Mentoria Constante</h3>
