@@ -18,22 +18,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css" />
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .aquizHeadSocial {
+      display: flex;
+    }
+  </style>
 </head>
 
 <body>
   <!-- HEADER -->
   <header class="aquizHead">
     <div class="wrapper aquizHeadWrapper">
-      <div class="aquizHeadLogo">
+      <div class="aquizHeadLogo wow pulse">
         <a href="./">
           <img class="aquizHeadLogo__header" src="assets/logoHeader.png" alt="Logo" width="140" />
         </a>
       </div>
-      <button class="hamburger hamburger--elastic" type="button" id="menuBurguer" onmouseover="toolTipActive()" onmouseout="toolTipFalse()">
+      <button class="hamburger hamburger--elastic" type="button" id="menuBurguer">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
-        <span id="tooltip" class="tooltip">Menu</span>
       </button>
       <nav class="aquizHeadNav" id="menuNav">
         <ul>
@@ -55,7 +60,7 @@
     <div class="wrapper aquizHeroWrapper">
       <img class="aquizHero__img wow pulse" src="assets/header-img.png" alt="Hero" />
       <article class="aquizHeroCopy wow pulse">
-        <h1 class="aquizHeroCopy__title"><span>Plataforma</span> de contenido <br /> <span>digital</span> educativo</h1>
+        <h1 class="aquizHeroCopy__title"><span>Plataforma</span> de contenido <span>digital</span> educativo</h1>
         <p class="aquizHeroCopy__description">Somos una plataforma educativa online, donde implementamos diferentes
           métodos de enseñanza basados en la tecnología como son los videos educativos, juegos, lecturas, etc. Con la
           finalidad de lograr una mejor captación de nuestros alumnos.</p>

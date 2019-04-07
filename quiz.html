@@ -20,7 +20,8 @@
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
-    html, body {
+    html,
+    body {
       height: 100vh;
     }
   </style>
@@ -30,17 +31,15 @@
   <!-- HEADER -->
   <header class="aquizHead">
     <div class="wrapper aquizHeadWrapper">
-      <div class="aquizHeadLogo">
+      <div class="aquizHeadLogo wow pulse">
         <a href="./">
           <img class="aquizHeadLogo__header" src="assets/logoHeader.png" alt="Logo" width="140" />
         </a>
       </div>
-      <button class="hamburger hamburger--elastic" type="button" id="menuBurguer" onmouseover="toolTipActive()"
-        onmouseout="toolTipFalse()">
+      <button class="hamburger hamburger--elastic" type="button" id="menuBurguer">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
-        <span id="tooltip" class="tooltip">Menu</span>
       </button>
       <nav class="aquizHeadNav" id="menuNav">
         <ul>
@@ -49,6 +48,10 @@
           <li class="aquizHeadNav__list"><a class="aquizHeadNav__link" href="./cursos.html">Cursos</a></li>
           <li class="aquizHeadNav__list"><a class="aquizHeadNav__link" href="./contacto.html">Contacto</a></li>
         </ul>
+        <div class="aquizHeadSocial">
+          <a class="aquizHeadSocial__link" href="#"><i class="fab fa-facebook aquizHeadSocial__icon"></i></a>
+          <a class="aquizHeadSocial__link" href="#"><i class="fab fa-youtube aquizHeadSocial__icon"></i></a>
+        </div>
       </nav>
     </div>
   </header>
