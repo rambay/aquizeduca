@@ -1079,11 +1079,6 @@ ul, ol {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     text-align: center; }
-<<<<<<< HEAD
-=======
-  .quizQuestion img {
-    width: 150px; }
->>>>>>> fd4b2df3a2bb8883c3473276eaf6d9fcefa636b9
   .quizAnswerWrapper {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr; }
@@ -1105,13 +1100,9 @@ ul, ol {
     -ms-grid-column-align: center;
     justify-self: center; }
   .quizQuestion h2 {
-<<<<<<< HEAD
     font-size: 24px; }
   .quizQuestion img {
     width: 150px; } }
-=======
-    font-size: 24px; } }
->>>>>>> fd4b2df3a2bb8883c3473276eaf6d9fcefa636b9
 
 @media screen and (max-width: 320px) {
   .quizQuestion h2 {
