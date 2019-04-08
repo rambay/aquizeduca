@@ -29,6 +29,9 @@
       /* height: 10.5%; */
       height: 13%;
     }
+    .aquizHeadWrapper {
+      height: 100%;
+    }
   </style>
 </head>
 
@@ -69,17 +72,17 @@
         </figure>
         <div class="aquizUser__profile">
           <h5>Diego</h5>
-          <small>300pts</small>
+          <small id="pointsPlayerOne">300pts</small>
         </div>
       </div>
-      <span class="aquizNumQuestion">1/10</span>
+      <span id="questionOrder" class="aquizNumQuestion">1/10</span>
       <div class="aquizUser" data-user="user-right">
         <figure class="aquizUser__image">
           <img src="assets/user02.jpg" width="65" alt="User" />
         </figure>
         <div class="aquizUser__profile">
           <h5>Luis</h5>
-          <small>300pts</small>
+          <small id="pointsPlayerTwo">300pts</small>
         </div>
       </div>
     </div>
@@ -87,33 +90,19 @@
 
   <div class="quizQuestion">
     <div class="wrapper quizQuestionWrapper">
-      <h2>¿Qué animal no es un enemigo de los pingüinos?</h2>
-      <img src="assets/ImageQuiz.png" alt="ImageQuiz">
+      <h2 id="questionTitle">¿Qué animal no es un enemigo de los pingüinos?</h2>
+      <img id="questionImage" src="" alt="ImageQuiz">
     </div>
   </div>
 
   <div class="quizAnswer">
-    <div class="wrapper quizAnswerWrapper">
-      <button class="answer">Focas leopardo</button>
-      <button class="answer">Orcas</button>
-      <button class="answer">Deflines</button>
-    </div>
+    <div id="wrapperAnswers" class="wrapper quizAnswerWrapper"></div>
   </div>
 
-  <script src="js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-  <script>
-    wow = new WOW(
-      {
-        boxClass: 'wow',      // default
-        animateClass: 'animated', // default
-        offset: 0,          // default
-        mobile: true,       // default
-        live: true        // default
-      }
-    )
-    wow.init();
-  </script>
+  <script src="js/script.js"></script>
+  <script src="js/quiz.js"></script>
 </body>
 
 </html>
