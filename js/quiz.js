@@ -1,9 +1,9 @@
-let questionSection = document.getElementById('questionTitle');
-let answer = document.getElementById('answerList');
-let images = document.getElementById('imageContainer');
-let questionsOrder = document.getElementById('cantQuestions');
-let pointUno = document.getElementById('pointsPlayerUno');
-let pointDos = document.getElementById('pointsPlayerDos');
+let questionTitle = document.getElementById('questionTitle');
+let wrapperAnswers = document.getElementById('wrapperAnswers');
+let questionImage = document.getElementById('questionImage');
+let questionOrder = document.getElementById('questionOrder');
+let pointsPlayerOne = document.getElementById('pointsPlayerOne');
+let pointsPlayerTwo = document.getElementById('pointsPlayerTwo');
 
 let questions = [
   '¿Cuanto es la suma total de 2 + 2?',
@@ -36,14 +36,14 @@ var level = 0;
 
 function jugadorUno() {
   // alert('Correcto');
-  questionsOrder.innerHTML = ++indicarInicial + '/3';
+  questionOrder.innerHTML = ++indicarInicial + '/3';
   acumPuntosJugadorUno += acertoJugada;
   jugar(level++);
 }
 
 function jugadorDos() {
   // alert('Correcto');
-  questionsOrder.innerHTML = ++indicarInicial + '/3';
+  questionOrder.innerHTML = ++indicarInicial + '/3';
   acumPuntosJugadorDos += acertoJugada;
   jugar(level++);
 }
@@ -66,7 +66,6 @@ function jugar() {
   var respuestas_reordenadas = [];
 
   var ya_se_metio = false;
-  indice_respuesta_correcta;
   var posicion_aleatoria;
   for (i in respuestas_posibles) {
     posicion_aleatoria = Math.floor(Math.random() * posiciones.length);
@@ -84,26 +83,31 @@ function jugar() {
   }
 
   let applyImage = "";
-  if (level === 0) {
-    applyImage = '<img class="mt-4 mt-sm-0" src="' + 'https://i.pinimg.com/originals/e2/89/9c/e2899c265ad24e60cda1add2a8cb580f.jpg' + '" width="90%" />';
-  }
-  else if (level === 1) {
-    applyImage = '<img class="mt-4 mt-sm-0" src="' + 'http://perugreenluxury.com.pe/wp-content/uploads/2017/09/Lima01.jpeg' + '" width="90%" />';
-  }
-  else if (level === 2) {
-    applyImage = '<img class="mt-4 mt-sm-0" src="' + 'https://avatars0.githubusercontent.com/u/9919?s=280&v=4' + '" width="90%" />';
+  switch (level) {
+    case 0:
+      applyImage = 'https://i.pinimg.com/originals/e2/89/9c/e2899c265ad24e60cda1add2a8cb580f.jpg';
+      break;
+    case 1:
+      applyImage = 'http://perugreenluxury.com.pe/wp-content/uploads/2017/09/Lima01.jpeg';
+      break;
+    case 2:
+      applyImage = 'https://avatars0.githubusercontent.com/u/9919?s=280&v=4';
+      break;
+    default:
+      console.log('No se encontraron imagenes')
+      break;
   }
 
-  questionSection.innerHTML = questions[level];
-  images.innerHTML = applyImage;
-  answer.innerHTML = txt_respuestas;
+  questionTitle.innerHTML = questions[level];
+  questionImage.setAttribute('src', applyImage);
+  wrapperAnswers.innerHTML = txt_respuestas;
 
   jugadorUnoActivo = true;
   jugadorDosActivo = false;
 
   //VERIFICAR LOS BOTONES DE RESPUESTAS
 
-  $("button").click(function () {
+  $(".answers__full").click(function () {
 
     var respuesta = $(this).val();
     if (respuesta == indice_respuesta_correcta && jugadorUnoActivo == true) {
@@ -124,8 +128,8 @@ function jugar() {
   });
 
 
-  pointUno.innerHTML = acumPuntosJugadorUno + ' ' + 'pts';
-  pointDos.innerHTML = acumPuntosJugadorDos + ' ' + 'pts';
+  pointsPlayerOne.innerHTML = acumPuntosJugadorUno + ' ' + 'pts';
+  pointsPlayerTwo.innerHTML = acumPuntosJugadorDos + ' ' + 'pts';
 
   if (indicarInicial > 3 && acumPuntosJugadorUno > acumPuntosJugadorDos) {
     setTimeout(function () {
@@ -133,7 +137,7 @@ function jugar() {
     });
     level = 0;
     indicarInicial = 1;
-    questionsOrder.innerHTML = indicarInicial + '/3';
+    questionOrder.innerHTML = indicarInicial + '/3';
     jugar(level);
   }
   else if (indicarInicial > 3 && acumPuntosJugadorDos > acumPuntosJugadorUno) {
@@ -142,7 +146,7 @@ function jugar() {
     });
     level = 0;
     indicarInicial = 1;
-    questionsOrder.innerHTML = indicarInicial + '/3';
+    questionOrder.innerHTML = indicarInicial + '/3';
     jugar(level);
   }
 }
