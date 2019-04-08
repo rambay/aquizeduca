@@ -25,10 +25,12 @@
       height: 100vh;
       overflow: hidden;
     }
+
     .aquizHead {
       /* height: 10.5%; */
       height: 13%;
     }
+
     .aquizHeadWrapper {
       height: 100%;
     }
@@ -39,7 +41,7 @@
   <!-- HEADER -->
   <header class="aquizHead">
     <div class="wrapper aquizHeadWrapper">
-      <div class="aquizHeadLogo wow pulse">
+      <div class="aquizHeadLogo">
         <a href="./">
           <img class="aquizHeadLogo__header" src="assets/logoHeader.png" alt="Logo" width="140" />
         </a>
@@ -90,19 +92,51 @@
 
   <div class="quizQuestion">
     <div class="wrapper quizQuestionWrapper">
-      <h2 id="questionTitle">¿Qué animal no es un enemigo de los pingüinos?</h2>
-      <img id="questionImage" src="" alt="ImageQuiz">
+      <h2 id="questionTitle" class="wow pulse">¿Qué animal no es un enemigo de los pingüinos?</h2>
+      <img class="wow pulse" id="questionImage" src="" alt="ImageQuiz">
     </div>
   </div>
 
   <div class="quizAnswer">
-    <div id="wrapperAnswers" class="wrapper quizAnswerWrapper"></div>
+    <div id="wrapperAnswers" class="wrapper quizAnswerWrapper wow pulse"></div>
   </div>
+
+  <!-- <div class="modalResult">
+    <img src="assets/user01.jpg" width="80" alt="UserModal">
+    <div class="modalResultStadist">
+      <div class="points">
+        <h4>Puntos obtenidos</h4>
+        <small>50</small>
+      </div>
+      <div class="answerCorrect">
+        <h4>Respuestas correctas</h4>
+        <small>2</small>
+      </div>
+      <div class="answerIncorrect">
+        <h4>Respuestas incorrectas</h4>
+        <small>1</small>
+      </div>
+    </div>
+  </div> -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
   <script src="js/script.js"></script>
   <script src="js/quiz.js"></script>
+  <script>
+
+    wow = new WOW(
+      {
+        boxClass: 'wow',      // default
+        animateClass: 'animated', // default
+        offset: 0,          // default
+        mobile: true,       // default
+        live: true        // default
+      }
+    )
+    wow.init();
+
+  </script>
 </body>
 
 </html>
