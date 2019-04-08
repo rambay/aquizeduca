@@ -1102,7 +1102,7 @@ ul, ol {
   .quizQuestion h2 {
     font-size: 18px; }
   .quizQuestion img {
-    width: 110px; } }
+    width: 160px; } }
 
 @media screen and (max-width: 360px) {
   .quizQuestion h2 {
