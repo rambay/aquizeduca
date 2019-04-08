@@ -841,7 +841,7 @@ ul, ol {
     background: #B90449;
     cursor: pointer;
     display: block;
-    line-height: 3;
+    line-height: 2.5;
     width: 100%;
     margin: 1em 0;
     padding: .5em 1em;
@@ -1102,7 +1102,7 @@ ul, ol {
   .quizQuestion h2 {
     font-size: 18px; }
   .quizQuestion img {
-    width: 165px; } }
+    width: 110px; } }
 
 @media screen and (max-width: 360px) {
   .quizQuestion h2 {
@@ -1114,4 +1114,4 @@ ul, ol {
   .aquizUsersWrapper {
     grid-gap: 10px; }
   .quizQuestion img {
-    width: 128px; } }
+    width: 118px; } }
