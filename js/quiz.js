@@ -1,9 +1,10 @@
-let questionTitle = document.getElementById('questionTitle');
-let wrapperAnswers = document.getElementById('wrapperAnswers');
-let questionImage = document.getElementById('questionImage');
-let questionOrder = document.getElementById('questionOrder');
-let pointsPlayerOne = document.getElementById('pointsPlayerOne');
-let pointsPlayerTwo = document.getElementById('pointsPlayerTwo');
+const questionTitle = document.getElementById('questionTitle');
+const wrapperAnswers = document.getElementById('wrapperAnswers');
+const questionImage = document.getElementById('questionImage');
+const questionOrder = document.getElementById('questionOrder');
+const pointsPlayerOne = document.getElementById('pointsPlayerOne');
+const pointsPlayerTwo = document.getElementById('pointsPlayerTwo');
+const modalResult = document.getElementById('modalResult');
 
 let questions = [
   '¿Cuanto es la suma total de 2 + 2?',
@@ -34,23 +35,50 @@ var level = 0;
 
 // JUGADORES
 
+jugadorUnoActivo = true;
+jugadorDosActivo = false;
+
+let pointsCorrect = 0;
+let pointsIncorrect = 0;
+
 function jugadorUno() {
-  // alert('Correcto');
   questionOrder.innerHTML = ++indicarInicial + '/3';
   acumPuntosJugadorUno += acertoJugada;
+  ++pointsCorrect;
   jugar(level++);
 }
 
 function jugadorDos() {
-  // alert('Correcto');
   questionOrder.innerHTML = ++indicarInicial + '/3';
   acumPuntosJugadorDos += acertoJugada;
+  ++pointsCorrect;
   jugar(level++);
 }
 
-setTimeout(function () {
-  alert('Turno Diego')
-}, 300);
+function templateModalResult(playerPhoto, playerName, pointTotal, pointCorrect, pointIncorrect) {
+  return (`<h2>Ganador</h2>
+  <img src="assets/${playerPhoto}.jpg" width="80" alt="UserModal">
+  <h3>${playerName}</h3>
+  <div class="modalResultStadist">
+    <h3>Estadisticas</h3>
+    <div class="points">
+      <h4>Puntos obtenidos</h4>
+      <small>${pointTotal}</small>
+    </div>
+    <div class="answerCorrect">
+      <h4>Respuestas correctas</h4>
+      <small>${pointCorrect}</small>
+    </div>
+    <div class="answerIncorrect">
+      <h4>Respuestas incorrectas</h4>
+      <small>${pointIncorrect}</small>
+    </div>
+  </div>`);
+}
+
+function winPlayer() {
+  modalResult.classList.add('active-modalResult');
+}
 
 jugar(level);
 
@@ -102,9 +130,6 @@ function jugar() {
   questionImage.setAttribute('src', applyImage);
   wrapperAnswers.innerHTML = txt_respuestas;
 
-  jugadorUnoActivo = true;
-  jugadorDosActivo = false;
-
   //VERIFICAR LOS BOTONES DE RESPUESTAS
 
   $(".answers__full").click(function () {
@@ -119,31 +144,26 @@ function jugar() {
       jugadorDosActivo = true;
     }
     else {
-      setTimeout(function () {
-        alert('Turno Luis')
-      });
       jugadorUnoActivo = false;
       jugadorDosActivo = true;
+      ++pointsIncorrect;
     }
   });
-
 
   pointsPlayerOne.innerHTML = acumPuntosJugadorUno + ' ' + 'pts';
   pointsPlayerTwo.innerHTML = acumPuntosJugadorDos + ' ' + 'pts';
 
   if (indicarInicial > 3 && acumPuntosJugadorUno > acumPuntosJugadorDos) {
-    setTimeout(function () {
-      alert('Gana Diego');
-    });
+    modalResult.innerHTML = templateModalResult('user01', 'Diego', acumPuntosJugadorUno, pointsCorrect, pointsIncorrect);
+    winPlayer();
     level = 0;
     indicarInicial = 1;
     questionOrder.innerHTML = indicarInicial + '/3';
     jugar(level);
   }
   else if (indicarInicial > 3 && acumPuntosJugadorDos > acumPuntosJugadorUno) {
-    setTimeout(function () {
-      alert('Gana Luis');
-    });
+    modalResult.innerHTML = templateModalResult('user02', 'Luis', acumPuntosJugadorDos, pointsCorrect, pointsIncorrect);
+    winPlayer();
     level = 0;
     indicarInicial = 1;
     questionOrder.innerHTML = indicarInicial + '/3';

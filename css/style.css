@@ -850,6 +850,73 @@ ul, ol {
     border: 0;
     border-radius: 6px; }
 
+.modalResult {
+  background: rgba(1, 21, 49, 0.9);
+  position: fixed;
+  z-index: 8;
+  top: 50px;
+  right: 0;
+  margin: 0 auto;
+  width: 400px;
+  left: 0;
+  bottom: 50px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 50px 120px 50px;
+  grid-template-rows: 50px 120px 50px;
+  justify-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2em 0;
+  -webkit-transform: translateY(-1000px);
+  -ms-transform: translateY(-1000px);
+  transform: translateY(-1000px);
+  -webkit-transition: .6s;
+  -o-transition: .6s;
+  transition: .6s; }
+  .modalResult h2 {
+    color: #DC2C62;
+    text-transform: uppercase; }
+  .modalResult h3 {
+    color: #fff; }
+  .modalResult img {
+    border-radius: 50%;
+    width: 105px;
+    border: 3px dotted #F29100;
+    -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); }
+  .modalResultStadist {
+    background: #171C2B;
+    width: 80%;
+    border-radius: 12px;
+    color: #fff;
+    padding: 2em; }
+    .modalResultStadist h3 {
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 0;
+      padding-bottom: 1em; }
+    .modalResultStadist .points, .modalResultStadist .answerCorrect, .modalResultStadist .answerIncorrect {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .modalResultStadist .points h4, .modalResultStadist .answerCorrect h4, .modalResultStadist .answerIncorrect h4 {
+        color: #DC2C62; }
+      .modalResultStadist .points small, .modalResultStadist .answerCorrect small, .modalResultStadist .answerIncorrect small {
+        justify-self: flex-end;
+        font-weight: bold;
+        font-size: 18px; }
+
+.active-modalResult {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0); }
+
 @media screen and (max-width: 1200px) {
   .aquizHeadNav__list:nth-of-type(4) a {
     padding-right: 0; }
@@ -1114,4 +1181,12 @@ ul, ol {
   .aquizUsersWrapper {
     grid-gap: 10px; }
   .quizQuestion img {
-    width: 118px; } }
+    width: 118px; }
+  .modalResult {
+    width: 90%;
+    top: 20px;
+    bottom: 20px; }
+  .modalResultStadist {
+    padding: 1em; }
+  .modalResultStadist h3 {
+    padding-bottom: 0; } }
