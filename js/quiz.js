@@ -93,7 +93,7 @@ function empezarJuego() {
       console.log('Incorrecto jugador1');
       jugadorUnoTurno = false;
       jugadorDosTurno = true;
-      pointsIncorrectJugadorDos += 1;
+      pointsIncorrectJugadorUno += 1;
     }
   }
 
