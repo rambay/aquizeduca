@@ -45,7 +45,8 @@ function posicionQuestion() {
 }
 
 function templateModalResult(playerPhoto, playerName, pointTotal, pointCorrect, pointIncorrect) {
-  return (`<h2>Ganador</h2>
+  return (`<span id="closeModal" onclick="cerrarModal()" class="closeModal fas fa-times"></span>
+  <h2>Ganador</h2>
   <img src="assets/${playerPhoto}.jpg" width="80" alt="UserModal">
   <h3>${playerName}</h3>
   <div class="modalResultStadist">
@@ -81,37 +82,6 @@ var jugadorDosTurno = false;
 
 function empezarJuego() {
 
-  function jugadorUno() {
-    if (respuesta === indice_respuesta_correcta) {
-      console.log('Correcto jugador1');
-      acumPuntosJugadorUno += acertoJugada;
-      pointsCorrectJugadorUno += 1;
-      empezarJuego(level++);
-      posicionQuestion();
-
-    } else {
-      console.log('Incorrecto jugador1');
-      jugadorUnoTurno = false;
-      jugadorDosTurno = true;
-      pointsIncorrectJugadorUno += 1;
-    }
-  }
-
-  function jugadorDos() {
-    if (respuesta === indice_respuesta_correcta) {
-      console.log('Correcto jugador2');
-      acumPuntosJugadorDos += acertoJugada;
-      pointsCorrectJugadorDos += 1;
-      empezarJuego(level++);
-      posicionQuestion();
-    } else {
-      console.log('Incorrecto jugador2');
-      jugadorDosTurno = false;
-      jugadorUnoTurno = true;
-      pointsIncorrectJugadorDos += 1;
-    }
-  }
-
   var indiceAleatorio = Math.floor(Math.random() * questions.length);
 
   let respuestas_posibles = respuestas[level];
@@ -133,7 +103,7 @@ function empezarJuego() {
 
   var txt_respuestas = '';
   for (i in respuestas_reordenadas) {
-    txt_respuestas += '<button class="answers__full" data-value="' + i + '">' + respuestas_reordenadas[i] + '</button>';
+    txt_respuestas += '<button id="btnRespuesta" class="answers__full" data-value="' + i + '">' + respuestas_reordenadas[i] + '</button>';
   }
 
   let applyImage = "";
@@ -161,6 +131,7 @@ function empezarJuego() {
   pointsPlayerOne.innerHTML = acumPuntosJugadorUno + ' ' + 'pts';
   pointsPlayerTwo.innerHTML = acumPuntosJugadorDos + ' ' + 'pts';
 
+
   if (indicarInicial > 3 && acumPuntosJugadorUno > acumPuntosJugadorDos) {
     modalResult.innerHTML = templateModalResult('user01', 'Diego', acumPuntosJugadorUno, pointsCorrectJugadorUno, pointsIncorrectJugadorUno);
     showModal();
@@ -178,23 +149,60 @@ function empezarJuego() {
     empezarJuego(level);
   }
 
-  var buttonAnswer = document.querySelectorAll('.answers__full');
+  let buttonAnswer = document.querySelectorAll('.answers__full');
 
   buttonAnswer.forEach(i => {
-    i.addEventListener('click', () => {
+    i.addEventListener('click', (ev) => {
       respuesta = i.dataset.value;
       if (jugadorUnoTurno === true) {
-        jugadorUno();
+        if (respuesta === indice_respuesta_correcta) {
+          setTimeout(() => {
+            console.log('Correcto jugador1');
+            acumPuntosJugadorUno += acertoJugada;
+            pointsCorrectJugadorUno += 1;
+            empezarJuego(level++);
+            posicionQuestion();
+          }, 300)
+          ev.target.classList.add('active');
+        } else {
+          console.log('Incorrecto jugador1');
+          jugadorUnoTurno = false;
+          jugadorDosTurno = true;
+          pointsIncorrectJugadorUno += 1;
+          ev.target.classList.add('error');
+          setTimeout(() => {
+            ev.target.classList.remove('error');
+          }, 300);
+        }
       }
 
       else if (jugadorDosTurno === true) {
-        jugadorDos();
+        if (respuesta === indice_respuesta_correcta) {
+          setTimeout(() => {
+            console.log('Correcto jugador2');
+            acumPuntosJugadorDos += acertoJugada;
+            pointsCorrectJugadorDos += 1;
+            empezarJuego(level++);
+            posicionQuestion();
+          }, 300)
+          ev.target.classList.add('active');
+        } else {
+          console.log('Incorrecto jugador2');
+          jugadorDosTurno = false;
+          jugadorUnoTurno = true;
+          pointsIncorrectJugadorDos += 1;
+          ev.target.classList.add('error');
+          setTimeout(() => {
+            ev.target.classList.remove('error');
+          }, 300);
+        }
       }
+
     })
   });
 
-
-
 }
 
-
+function cerrarModal() {
+  modalResult.style.opacity = 0;
+}

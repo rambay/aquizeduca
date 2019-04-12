@@ -849,6 +849,23 @@ ul, ol {
     outline: 0;
     border: 0;
     border-radius: 6px; }
+  .quizAnswer .active {
+    background: #6ba512;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s; }
+  .quizAnswer .error {
+    background: red;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s; }
+
+.closeModal {
+  -ms-grid-column-align: center;
+  justify-self: center;
+  color: white;
+  font-size: 45px;
+  cursor: pointer; }
 
 .modalResult {
   background: rgba(1, 21, 49, 0.9);
@@ -862,8 +879,8 @@ ul, ol {
   bottom: 50px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 50px 120px 50px;
-  grid-template-rows: 50px 120px 50px;
+  -ms-grid-rows: 50px 50px 120px 50px;
+  grid-template-rows: 50px 50px 120px 50px;
   justify-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
