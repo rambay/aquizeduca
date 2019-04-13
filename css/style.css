@@ -38,11 +38,23 @@ ul, ol {
  *   HEADER   *
  **************/
 .aquizHead {
-  background: -webkit-gradient(linear, left top, right top, from(#0B7D9A), to(#2051AD));
-  background: -webkit-linear-gradient(left, #0B7D9A, #2051AD);
-  background: -o-linear-gradient(left, #0B7D9A, #2051AD);
-  background: linear-gradient(to right, #0B7D9A, #2051AD);
-  z-index: 4; }
+  background-image: url(../../assets/pattern-header.png);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: contain; }
+  .aquizHead::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, right top, from(#0B7D9A), to(#2051AD));
+    background: -webkit-linear-gradient(left, #0B7D9A, #2051AD);
+    background: -o-linear-gradient(left, #0B7D9A, #2051AD);
+    background: linear-gradient(to right, #0B7D9A, #2051AD);
+    z-index: -1; }
   .aquizHeadWrapper {
     display: -ms-grid;
     display: grid;
@@ -53,13 +65,29 @@ ul, ol {
     align-items: center; }
   .aquizHeadNav {
     text-align: right;
+    background: white;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr auto;
     grid-template-columns: 1fr auto;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; }
+    align-items: center;
+    padding: 0 2em;
+    position: relative;
+    -webkit-box-shadow: -10px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: -10px 2px 4px rgba(0, 0, 0, 0.2); }
+    .aquizHeadNav::after {
+      content: '';
+      width: 50px;
+      height: 100%;
+      position: absolute;
+      left: -30px;
+      background: white;
+      -webkit-transform: skew(25deg);
+      -ms-transform: skew(25deg);
+      transform: skew(25deg);
+      bottom: 0; }
     .aquizHeadNav ul {
       display: inline-block; }
   .aquizHeadNav__list {
@@ -67,7 +95,7 @@ ul, ol {
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: bold; }
   .aquizHeadNav__link {
-    color: #fff;
+    color: #696969;
     text-decoration: none;
     padding-right: 2em;
     font-size: 16px;
@@ -84,22 +112,17 @@ ul, ol {
     margin-left: 2em;
     height: 81px;
     position: relative;
-    background: #103c6f;
     border-radius: 0 0 8px 8px;
     padding: 8px; }
   .aquizHeadSocial__icon {
     font-size: 21px;
     padding: 0 5px;
-    color: #fff; }
+    color: #696969; }
 
 /*************
 *   HERO     *
 **************/
 .aquizHero {
-  background: -webkit-gradient(linear, left top, right top, from(#0B7D9A), to(#2051AD));
-  background: -webkit-linear-gradient(left, #0B7D9A, #2051AD);
-  background: -o-linear-gradient(left, #0B7D9A, #2051AD);
-  background: linear-gradient(to right, #0B7D9A, #2051AD);
   overflow: hidden; }
   .aquizHeroWrapper {
     display: -ms-grid;
@@ -1044,7 +1067,8 @@ ul, ol {
     text-align: center;
     padding: 1.5em 0; }
   .aquizHeadNav__link {
-    padding: 0; }
+    padding: 0;
+    color: white; }
   .aquizAboutWrapper {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr; }
@@ -1078,10 +1102,13 @@ ul, ol {
   .aquizHeadNav__list {
     text-align: left;
     padding-left: 1.5em; }
+  .aquizHeadNav::after {
+    left: -93px; }
   .aquizHeadNav__link {
     font-size: 25px; }
   .aquizHeadSocial__icon {
-    font-size: 40px; }
+    font-size: 40px;
+    color: white; }
   .aquizHeadSocial {
     border-top: 2px solid white;
     margin: 3em auto;

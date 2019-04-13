@@ -7,34 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <meta property="og:title" content="Aquiz Educa" />
   <meta property="og:description"
-    content="AQUIZ, es una plataforma educativa virtual que complementa lo aprendido en el aula de una manera dinamica, divertida e innovadora.">
+  content="AQUIZ, es una plataforma educativa virtual que complementa lo aprendido en el aula de una manera dinamica, divertida e innovadora.">
   <meta property="og:type" content="Website" />
   <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" />
   <meta property="og:url" content="https://rambay.github.io/aquizeduca/" />
   <title>AQUIZ EDUCA | Plataforma Digital</title>
   <link rel="icon" href="assets/icon.png" />
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Lato" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
-
-  <style>
-    html,
-    body {
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .aquizHead {
-      /* height: 10.5%; */
-      height: 13%;
-    }
-
-    .aquizHeadWrapper {
-      height: 100%;
-    }
-  </style>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+  <link rel="stylesheet" href="dist/css/animate-dist.css" />
+  <link rel="stylesheet" href="dist/css/hamburguer-dist.css" />
+  <link rel="stylesheet" href="dist/css/style-dist.css" />
+  <style>html,body{height:100vh;overflow:hidden;}.aquizHead{height:13%;}.aquizHeadWrapper{height:100%;}</style>
 </head>
 
 <body>
@@ -104,23 +88,10 @@
   <div id="modalResult" class="modalResult"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script>new WOW().init();</script>
   <script src="js/script.js"></script>
   <script src="js/quiz.js"></script>
-  <script>
-
-    wow = new WOW(
-      {
-        boxClass: 'wow',      // default
-        animateClass: 'animated', // default
-        offset: 0,          // default
-        mobile: true,       // default
-        live: true        // default
-      }
-    )
-    wow.init();
-
-  </script>
 </body>
 
 </html>
