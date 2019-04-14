@@ -24,9 +24,9 @@
   <!-- HEADER -->
   <header class="aquizHead">
     <div class="wrapper aquizHeadWrapper">
-      <div class="aquizHeadLogo wow pulse">
+      <div class="aquizHeadLogo">
         <a href="./">
-          <img class="aquizHeadLogo__header" src="assets/logoHeader.png" alt="Logo" width="140" />
+          <img class="aquizHeadLogo__header" src="assets/logoHeader.svg" alt="Logo" width="140" />
         </a>
       </div>
       <button class="hamburger hamburger--elastic" type="button" id="menuBurguer">
@@ -126,8 +126,10 @@
 
       <!-- WATCH COURSE -->
       <div class="aquizCourseWatch">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ttdq818TGD0" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="wrapperVideo">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ttdq818TGD0" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
         <div class="descriptionWrapper">
           <div class="aquizCourseWatch__description">
             <h3>Causas de la Revolución Francesa</h3>
@@ -147,26 +149,11 @@
         <div class="aquizCourseComments">
           <h2>Anotaciones</h2>
           <form class="aquizCourseComments__write" action="">
-            <textarea name="comments" id="comments" cols="30" rows="4" maxlength="250"
+            <textarea name="comments" id="comments" cols="30" rows="4" maxlength="120"
             placeholder="Escriba su mensaje"></textarea>
-            <button type="button">Guardar</button>
+            <button id="btnNotes" type="submit">Guardar</button>
           </form>
-          <div class="aquizCourseComments__messages">
-            <div class="commentMessage">
-              <h3>Nota guardada #01</h3>
-              <p>Los movimientos migratorios son causados por varios factores algunos repulsivo.</p>
-            </div>
-            <div class="commentMessage">
-              <h3>Nota guardada #01</h3>
-              <p>La crisis económica obligo al soberano francés a reunirlos, para que adoptaran así las medidas mas
-              convenientes.</p>
-            </div>
-            <div class="commentMessage">
-              <h3>Nota guardada #01</h3>
-              <p>La revolución francesa difundió por el mundo los ideales de libertad y fraternidad, así como el de la
-              soberanía popular.</p>
-            </div>
-          </div>
+          <div id="postNotes" class="aquizCourseComments__messages"></div>
         </div>
 
         <div class="aquizCourseMaterialPlus">
@@ -209,9 +196,22 @@
       </div>
     </div>
 
-    <script src="dist/js/script-dist.js"></script>
     <script src="dist/js/wow.min.js"></script>
     <script>new WOW().init();</script>
+    <script src="dist/js/script-dist.js"></script>
+    <script>
+
+      const postNote = document.getElementById('postNotes'),
+            noteMessagesForm = document.getElementById('comments'),
+            btnNotes = document.getElementById('btnNotes');
+
+      btnNotes.addEventListener('click', (ev)=> {
+        ev.preventDefault();
+        const renderNote = templateNotes(noteMessagesForm.value);
+        postNote.innerHTML += renderNote;
+      })
+      
+    </script>
   </body>
 
   </html>
