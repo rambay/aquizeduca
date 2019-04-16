@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="dist/css/animate-dist.css" />
   <link rel="stylesheet" href="dist/css/hamburguer-dist.css" />
   <link rel="stylesheet" href="dist/css/style-dist.css" />
-  <style>html,body{height:100vh;overflow:hidden;}.aquizHead{height:13%;}.aquizHeadWrapper{height:100%;}</style>
+  <style>html,body{height:100vh;overflow:hidden;}.aquizHead{height:13%;}.aquizHeadWrapper{height:100%;}@media screen and (min-width:800px){.aquizHeadNav{background:transparent;box-shadow:none;padding:0;}.aquizHeadNav::after{content:none;}.aquizHeadNav__link{color:white;}}</style>
 </head>
 
 <body>
@@ -61,7 +61,7 @@
           <small id="pointsPlayerOne">300pts</small>
         </div>
       </div>
-      <span id="questionOrder" class="aquizNumQuestion"></span>
+      <span id="questionWrapper" class="aquizNumQuestion"></span>
       <div class="aquizUser" data-user="user-right">
         <figure class="aquizUser__image">
           <img src="assets/user02.jpg" width="65" alt="User" />
@@ -87,7 +87,6 @@
 
   <div id="modalResult" class="modalResult"></div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="dist/js/wow.min.js"></script>
   <script>new WOW().init();</script>
   <script src="dist/js/quiz-dist.js"></script>

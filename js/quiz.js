@@ -1,7 +1,7 @@
 const questionTitle = document.getElementById('questionTitle');
 const wrapperAnswers = document.getElementById('wrapperAnswers');
 const questionImage = document.getElementById('questionImage');
-const questionOrder = document.getElementById('questionOrder');
+const questionWrapper = document.getElementById('questionWrapper');
 const pointsPlayerOne = document.getElementById('pointsPlayerOne');
 const pointsPlayerTwo = document.getElementById('pointsPlayerTwo');
 const modalResult = document.getElementById('modalResult');
@@ -31,51 +31,9 @@ var acertoJugada = 25;
 var acumPuntosJugadorUno = 0;
 var acumPuntosJugadorDos = 0;
 
-// INDICADOR DE NUMERO DE PREGUNTAS
-
-var questionInitial = 1;
-
-questionOrder.textContent = `${questionInitial}/3`;
-
 // NIVEL DE PREGUNTA
 
 var level = 0;
-
-function posicionQuestion() {
-  if (questionInitial >= 3) {
-    questionOrder.textContent = `${questionInitial}/3`;
-  } else {
-    questionOrder.textContent = `${++questionInitial}/3`;
-  }
-}
-
-function templateModalResult(playerPhoto, playerName, pointTotal, pointCorrect, pointIncorrect) {
-  return (`<span id="closeModal" onclick="cerrarModal()" class="closeModal fas fa-times"></span>
-    <h2>Ganador</h2>
-    <img src="assets/${playerPhoto}.jpg" width="80" alt="UserModal">
-    <h3>${playerName}</h3>
-    <div class="modalResultStadist">
-    <h3>Estadisticas</h3>
-    <div class="points">
-    <h4>Puntos obtenidos</h4>
-    <small>${pointTotal}</small>
-    </div>
-    <div class="answerCorrect">
-    <h4>Respuestas correctas</h4>
-    <small>${pointCorrect}</small>
-    </div>
-    <div class="answerIncorrect">
-    <h4>Respuestas incorrectas</h4>
-    <small>${pointIncorrect}</small>
-    </div>
-    </div>`);
-}
-
-function showModal() {
-  modalResult.classList.add('active-modalResult');
-}
-
-empezarJuego(level);
 
 var indice_respuesta_correcta;
 var valueAnswer;
@@ -83,12 +41,49 @@ var valueAnswer;
 var jugadorUnoTurno = true;
 var jugadorDosTurno = false;
 
+var questionOrder = 1;
 
-cerrarModal();
+questionWrapper.textContent = `${questionOrder}/3`;
+
+empezarJuego(level);
 
 function empezarJuego() {
 
-  var indiceAleatorio = Math.floor(Math.random() * questions.length);
+  function templateModalResult(playerPhoto, playerName, pointTotal, pointCorrect, pointIncorrect) {
+    return (`<span id="closeModal" onclick="cerrarModal()" class="closeModal fas fa-times"></span>
+      <h2>Ganador</h2>
+      <img src="assets/${playerPhoto}.jpg" width="80" alt="UserModal">
+      <h3>${playerName}</h3>
+      <div class="modalResultStadist">
+      <h3>Estadisticas</h3>
+      <div class="points">
+      <h4>Puntos obtenidos</h4>
+      <small>${pointTotal}</small>
+      </div>
+      <div class="answerCorrect">
+      <h4>Respuestas correctas</h4>
+      <small>${pointCorrect}</small>
+      </div>
+      <div class="answerIncorrect">
+      <h4>Respuestas incorrectas</h4>
+      <small>${pointIncorrect}</small>
+      </div>
+      </div>`);
+  }
+
+  function posicionQuestion() {
+    if (questionOrder >= 3) {
+      questionWrapper.textContent = `${questionOrder}/3`;
+    } else {
+      questionWrapper.textContent = `${++questionOrder}/3`;
+    }
+  }
+
+  function showModal() {
+    modalResult.classList.add('active-modalResult');
+  }
+
+  // var indiceAleatorio = Math.floor(Math.random() * questions.length);
 
   let respuestas_posibles = respuestas[level];
 
@@ -132,18 +127,24 @@ function empezarJuego() {
   questionImage.setAttribute('src', applyImage);
   wrapperAnswers.innerHTML = txt_respuestas;
 
-  //VERIFICAR LOS BOTONES DE RESPUESTAS
+  function checkLevel() {
+    if (level >= 2) {
+      level = 0;
+    } else {
+      level += 1;
+    }
+  }
 
   pointsPlayerOne.innerHTML = acumPuntosJugadorUno + ' ' + 'pts';
   pointsPlayerTwo.innerHTML = acumPuntosJugadorDos + ' ' + 'pts';
 
 
-  if (questionInitial >= 3 && acumPuntosJugadorUno > acumPuntosJugadorDos) {
+  if (questionOrder >= 3 && acumPuntosJugadorUno > acumPuntosJugadorDos) {
     modalResult.innerHTML = templateModalResult('user01', 'Diego', acumPuntosJugadorUno, pointsCorrectJugadorUno, pointsIncorrectJugadorUno);
     showModal();
     acumPuntosJugadorUno = 0;
   }
-  else if (questionInitial >= 3 && acumPuntosJugadorDos > acumPuntosJugadorUno) {
+  else if (questionOrder >= 3 && acumPuntosJugadorDos > acumPuntosJugadorUno) {
     modalResult.innerHTML = templateModalResult('user02', 'Luis', acumPuntosJugadorDos, pointsCorrectJugadorDos, pointsIncorrectJugadorDos);
     showModal();
     acumPuntosJugadorDos = 0;
@@ -153,14 +154,10 @@ function empezarJuego() {
 
   buttonAnswer.forEach(i => {
     i.addEventListener('click', (ev) => {
-      if (level >= 2) {
-        level = 0;
-      } else {
-        level += 1;
-      }
       valueAnswer = i.dataset.value;
       if (jugadorUnoTurno === true) {
         if (valueAnswer === indice_respuesta_correcta) {
+          checkLevel();
           setTimeout(() => {
             console.log('Correcto jugador1');
             acumPuntosJugadorUno += acertoJugada;
@@ -183,6 +180,7 @@ function empezarJuego() {
 
       else if (jugadorDosTurno === true) {
         if (valueAnswer === indice_respuesta_correcta) {
+          checkLevel();
           setTimeout(() => {
             console.log('Correcto jugador2');
             acumPuntosJugadorDos += acertoJugada;
@@ -205,11 +203,18 @@ function empezarJuego() {
 
     })
   });
-
 }
 
 function cerrarModal() {
-  modalResult.style.transform = 'translateY(1000px)';
-  questionOrder.innerHTML = questionInitial + '/3';
+  modalResult.classList.remove('active-modalResult');
+  questionOrder = 1;
+  questionWrapper.textContent = `${questionOrder}/3`;
+  acumPuntosJugadorUno = 0;
+  acumPuntosJugadorDos = 0;
+  pointsCorrectJugadorUno = 0;
+  pointsIncorrectJugadorUno = 0;
+  pointsCorrectJugadorDos = 0;
+  pointsIncorrectJugadorDos = 0;
   empezarJuego(level = 0);
 }
+
